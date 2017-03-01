@@ -1,3 +1,5 @@
+// This is where Wes Bos like to put functions that aren't necisarilly tied to any one component. 
+
 export function formatPrice(cents) {
   return `$${(cents / 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
 }
