@@ -5,12 +5,12 @@ import { getFunName } from '../helpers.js';
 class StorePicker extends React.Component {
 
   // this. only refers to StorePicker automatically on the render Method.
-  //To get it to work on custome methods you have to make this constructor method below and bind it.
+  //To get it to work on custome methods you have to make the constructor method below and bind it.
   constructor(){
     super();
     this.goToStore =this.goToStore.bind(this);
   }
-  
+
   goToStore(e){
     e.preventDefault();
     const storeId = this.storeInput.value;

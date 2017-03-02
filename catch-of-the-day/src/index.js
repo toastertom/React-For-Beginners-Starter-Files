@@ -5,7 +5,7 @@ import {BrowserRouter, Match, Miss} from 'react-router';
 // You can load your styles the normal way in the html document but this way lets webpack do a hot reload when you make a change.
 import './css/style.css';
 
-//Components
+//Imported Components
 import App from './components/App';
 import StorePicker from './components/StorePicker';
 import NotFound from './components/NotFound';
