@@ -2,15 +2,17 @@ import React from 'react';
 import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
+import sampleFishes from '../sample-fishes';
 
 
 // Component (Everything is done in ES6)
 class App extends React.Component {
-  //Passes the state???
+  //constructor is used for binding custome components and it is where our STATE lives.
   constructor() {
     super();
-    //Binds the addFish method to App.
+    //This is where you bind your custome methods to the component, in this case it's App.
     this.addFish = this.addFish.bind(this);
+    this.loadSamples = this.loadSamples.bind(this);
     //Initial State
     this.state= {
       fishes: {},
@@ -27,6 +29,12 @@ class App extends React.Component {
     //set state
     this.setState({fishes: fishes})
   }
+
+  loadSamples() {
+    this.setState({
+      fishes: sampleFishes
+    });
+  }
   render() {
     return (
       <div className="catch-of-the-day">
@@ -34,7 +42,7 @@ class App extends React.Component {
           <Header tagline="Fresh SeaFood Market"/>
         </div>
         <Order/>
-        <Inventory addFish={this.addFish}/>
+        <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>
       </div>
     );
   }
