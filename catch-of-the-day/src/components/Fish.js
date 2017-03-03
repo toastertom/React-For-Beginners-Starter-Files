@@ -8,6 +8,11 @@ class Fish extends React.Component {
     //makes it easier so you don't have to type this.props.details.image ect.
     const {details} = this.props;
 
+    //Manages the state of the button.
+    const isAvailable = details.status === 'available';
+    //Ternerary Opporator
+    const buttonText = isAvailable ? 'Add To Order' : 'Sold Out';
+
     return(
       <li className="menu-fish">
         <img src={details.image} alt={details.name}>
@@ -22,7 +27,7 @@ class Fish extends React.Component {
           {details.desc}
         </p>
 
-        <button >Add To Order</button>
+        <button onClick={() => this.props.addToOrder(this.props.index)} disabled={!isAvailable} >{buttonText}</button>
       </li>
     )
   }

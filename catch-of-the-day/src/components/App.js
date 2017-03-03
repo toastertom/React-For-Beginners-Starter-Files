@@ -16,6 +16,7 @@ class App extends React.Component {
     //This is where you bind your custome methods to the component, in this case it's App.
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
+    this.addToOrder = this.addToOrder.bind(this);
     //Initial State
     this.state= {
       fishes: {},
@@ -38,6 +39,16 @@ class App extends React.Component {
       fishes: sampleFishes
     });
   }
+
+  addToOrder(key) {
+    //Take a copy of our state.
+    const order = {...this.state.order};
+    //Update or add the new number of fish ordered.
+    order[key] = order[key] + 1 || 1;
+    //Update the state.
+    this.setState({ order: order })
+  }
+
   render() {
     return (
       <div className="catch-of-the-day">
@@ -47,7 +58,7 @@ class App extends React.Component {
             {
               Object
                 .keys(this.state.fishes)
-                .map(key => <Fish key={key} details={this.state.fishes[key]}/>)
+                .map(key => <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder}/>)
             }
           </ul>
         </div>
