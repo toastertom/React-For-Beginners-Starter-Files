@@ -12,7 +12,7 @@ class AddFishForm extends React.Component {
     };
     this.props.addFish(fish);
     // Resets form after submit.
-    //This has to be attached to the form. <form ref={(input) => this.fishForm = input} 
+    //This has to be attached to the form. <form ref={(input) => this.fishForm = input}
     this.fishForm.reset();
   }
 
@@ -34,6 +34,10 @@ class AddFishForm extends React.Component {
       </form>
     )
   }
+}
+
+AddFishForm.propTypes = {
+  addFish: React.PropTypes.func.isRequired
 }
 
 export default AddFishForm;
